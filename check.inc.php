@@ -1,18 +1,24 @@
 <?php
+
+
 function akismet_user_comment_check($action, $comment, $where)
 {
-  global $conf;
+    
+  global $conf;    
 
-	if (!isset($_SESSION['csi']))
+    if (!isset($_SESSION['csi'])){
 		$_POST['cr'][] = 'csi';
+    }
 
-  if ('reject'==$action or $conf['akismet_spam_action']==$action)
+  if ('reject'==$action /*or $conf['akismet_spam_action']==$action*/){
     return $action; // already rejecting
-  if ( empty($conf['akismet_api_key']) )
+  }
+  if ( empty($conf['akismet_api_key']) ){
     return $action; // need to config it
+  }
   /*if ( !is_a_guest() )
     return $action;*/
-
+    
   include_once( dirname(__FILE__).'/akismet.class.php' );
 
   set_make_full_url();
@@ -46,16 +52,43 @@ function akismet_user_comment_check($action, $comment, $where)
 
   $akismet = new Akismet(get_absolute_root_url(), $conf['akismet_api_key'], $aki_comm);
 
+    
   if( !$akismet->errorsExist() )
   {
     $counters = explode('/', $conf['akismet_counters']);
     if ( $akismet->isSpam() )
     {
-      $action = $conf['akismet_spam_action'];
-      if ('reject'==$action && !is_a_guest() && isset($_SESSION['csi']) && (!isset($_POST['url']) || strlen($_POST['url'])==0))
-        $action='moderate';
-      $counters[0]++;
-      $_POST['cr'][] = 'aki';
+//      $action = $conf['akismet_spam_action'];
+//      if ('reject'==$action && !is_a_guest() && isset($_SESSION['csi']) && (!isset($_POST['url']) || strlen($_POST['url'])==0))
+//        $action='moderate';    
+        
+        $spam_action = $conf['akismet_spam_action'];
+        if(isset($_SESSION['csi']) && (!isset($_POST['url']) || strlen($_POST['url'])==0))
+        {
+            if($spam_action=='moderate' )
+            {
+                if(is_a_guest()){
+                    $action='reject';
+                }
+                else{
+                    $action='moderate';
+                }
+            }
+            if($spam_action=='reject' )
+            {
+                if(is_admin()){
+                    $action='moderate';
+                }
+                else{
+                    $action='reject';
+                }
+            }
+        }
+        else{
+            $action=$spam_action;
+        }
+        $counters[0]++;
+        $_POST['cr'][] = 'aki';
 			if ('reject'!=$action)
 				set_status_header(403);
     }
@@ -64,7 +97,7 @@ function akismet_user_comment_check($action, $comment, $where)
       $_POST['cr'][] = 'aki-ok';
       if (!isset($_SESSION['csi']) /*&& isset($_POST['url']) && strlen($_POST['url']) */)
       {
-        $action = $conf['akismet_spam_action'];
+        $action = $spam_action;
       }
     }
     $counters[1]++;
