@@ -11,6 +11,8 @@ define('AKIS_DIR' , basename(dirname(__FILE__)));
 define('AKIS_PATH' , PHPWG_PLUGINS_PATH . AKIS_DIR . '/');
 
 add_event_handler('user_comment_check', 'akismet_user_comment_check_wrapper', EVENT_HANDLER_PRIORITY_NEUTRAL+10, 3);
+add_event_handler('user_comment_validation', 'akismet_user_comment_submit_ham_wrapper', EVENT_HANDLER_PRIORITY_NEUTRAL+10, 3);
+add_event_handler('user_comment_deletion', 'akismet_user_comment_submit_spam_wrapper', EVENT_HANDLER_PRIORITY_NEUTRAL+10, 3);
 if (!isset($_SESSION['csi']))
 	add_event_handler('loc_begin_page_tail', 'akismet_page_tail' );
 
@@ -37,9 +39,41 @@ function akismet_plugin_admin_menu($menu)
 function akismet_user_comment_check_wrapper($action, $comment, $where=null)
 {
 	include_once( dirname(__FILE__).'/check.inc.php' );
+    echo 'check_wrapper';
+    echo '<pre>'; print_r($comment); echo '</pre>';
+    echo '$where';
+    echo '<pre>'; print_r($where); echo '</pre>';
 	$action = akismet_user_comment_check($action, $comment, $where);
 	return $action;
 }
+
+function akismet_user_comment_submit_ham_wrapper($comment, $where=null)
+{
+    include_once( dirname(__FILE__).'/submit-ham.inc.php');
+    echo 'submit_ham_wrapper';
+    echo '$comment';
+    echo '<pre>'; print_r($comment); echo '</pre>';
+    echo '$where';
+    echo '<pre>'; print_r($where); echo '</pre>';
+	$action = akismet_user_comment_submit_ham($comment, $where);
+    echo '$action: '.$action;
+	return $comment;
+}
+
+
+function akismet_user_comment_submit_spam_wrapper($comment, $where=null)
+{
+    include_once( dirname(__FILE__).'/submit-spam.inc.php');
+    echo 'submit_spam_wrapper';
+    echo '$comment';
+    echo '<pre>'; print_r($comment); echo '</pre>';
+    echo '$where';
+    echo '<pre>'; print_r($where); echo '</pre>';
+	$action = akismet_user_comment_submit_spam($comment, $where);
+    echo '$action: '.$action;
+	return $comment;
+}
+
 
 /*add_event_handler('init', 'akismet_init' );
 
