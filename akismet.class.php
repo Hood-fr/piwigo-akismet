@@ -247,7 +247,6 @@ class Akismet extends AkismetObject {
       self::__construct($blogUrl, $apiKey, $comment);
   }
 
-
   /**
    * Query the Akismet and determine if the comment is spam or not
    *
@@ -263,21 +262,23 @@ class Akismet extends AkismetObject {
   /**
    * Submit this comment as an unchecked spam to the Akismet server
    *
-   * @return  void
+   * @return  string
    */
   function submitSpam() {
-    $this->http->getResponse($this->_getQueryString(), 'submit-spam');
+    $response = $this->http->getResponse($this->_getQueryString(), 'submit-spam');
+    return $response;
   }
 
 
   /**
    * Submit a false-positive comment as "ham" to the Akismet server
    *
-   * @return  void
+   * @return  string
    */
   function submitHam() {
-    $this->http->getResponse($this->_getQueryString(), 'submit-ham');
-  }
+    $response = $this->http->getResponse($this->_getQueryString(), 'submit-ham');
+    return $response;
+}
 
 
   /**
