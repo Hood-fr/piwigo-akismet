@@ -22,4 +22,6 @@ $lang['You need to define the Akismet api key'] = 'Vous avez besoins de définir
 
 //akismet.class.php
 $lang['Your Akismet API key is not valid.'] = 'Votre clé API d\'Akismet n\est pas valide.';
+
+$lang['Suspected_Spam'] = 'Considéré indésirable';
 ?>
