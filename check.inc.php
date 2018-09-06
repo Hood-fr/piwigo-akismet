@@ -40,9 +40,12 @@ function akismet_user_comment_check($action, $comment, $where)
   unset_make_full_url();
 
   $aki_comm = array(
-    'author' => $comment['author'],
-    'body' => $comment['content'],
-    'comment_author_url' => @$comment['website_url'],
+    'blog' => isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '',
+    'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '',
+    'user_ip' => $comment['anonymous_id'],
+    'comment_type' => 'comment',
+    'comment_author' => $comment['author'],
+    'comment_content' => $comment['content'],    'comment_author_url' => @$comment['website_url'],
     'comment_author_email' => $comment['email'],
     'permalink' => $url,
     'referrer' => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '',
