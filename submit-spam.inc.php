@@ -14,9 +14,6 @@ function akismet_user_comment_submit_spam($comment_id, $where)
         $comment_id=$comment_id[0];
     }
 
-    echo 'submit_spam<br>';
-    echo '$Comment# '.$comment_id.'<br>';
-
     global $conf;
 
     include_once( dirname(__FILE__).'/akismet.class.php' );
@@ -33,27 +30,16 @@ function akismet_user_comment_submit_spam($comment_id, $where)
             $table=COMMENTS_TABLE;
     }
 
-echo 'TABLE= '.$table;
-
     $query = 'SELECT * FROM '.$table.' WHERE id = '.$comment_id.' LIMIT 1';
-    
-echo 'query = '.$query;
-    
+        
     $result=pwg_query($query);
-    
-echo '$result';
-echo '<pre>'; print_r($result); echo '</pre>';
-    
+        
     if (pwg_db_num_rows($result) > 0){
-        
-echo 'numrow = '.pwg_db_num_rows($result);
-        
+                
         $comment=pwg_db_fetch_assoc($result);
     }
     else
     {
-
-echo 'numrow = 0';
         
         $comment=array(
             'category_id' => '1',
@@ -67,8 +53,6 @@ echo 'numrow = 0';
             'spam_feedback' => 'spam'
         );
     }
-echo '$comment';
-echo '<pre>'; print_r($comment); echo '</pre>';
 
     if($comment['spam_feedback']=='ham')//if comment was tagged as ham, whereas it is actually spam, it is submited back to akismet as spam
     {
@@ -99,13 +83,9 @@ echo '<pre>'; print_r($comment); echo '</pre>';
             'permalink' => $url,
             'referrer' => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '',
         );
-        echo '$aki_comm';
-        echo '<pre>'; print_r($aki_comm); echo '</pre>';
 
         $root_url=get_absolute_root_url();
-        echo '$root_url';
-        echo '<pre>'; print_r($root_url); echo '</pre>';
-
+ 
         $akismet = new Akismet(get_absolute_root_url(), $conf['akismet_api_key'], $aki_comm);
 
 

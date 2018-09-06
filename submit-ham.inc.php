@@ -14,9 +14,6 @@ function akismet_user_comment_submit_ham($comment_id, $where)
         $comment_id=$comment_id[0];
     }
 
-    echo 'submit_ham<br>';
-    echo '$action '.$comment_id.'<br>';
-
     global $conf;
 
     include_once( dirname(__FILE__).'/akismet.class.php' );
@@ -33,27 +30,15 @@ function akismet_user_comment_submit_ham($comment_id, $where)
             $table=COMMENTS_TABLE;
     }
 
-    echo 'TABLE= '.$table;
-
     $query = 'SELECT * FROM '.$table.' WHERE id = '.$comment_id.' LIMIT 1';
 
-echo 'query = '.$query;
-
     $result=pwg_query($query);
-echo '$result';
-echo '<pre>'; print_r($result); echo '</pre>';
     
     if (pwg_db_num_rows($result) > 0){
-
-    echo 'numrow = '.pwg_db_num_rows($result);
-
         $comment=pwg_db_fetch_assoc($result);
     }
     else
     {
-
-echo 'numrow = 0';
-
         $comment=array(
             'category_id' => '1',
             'author' => 'bidon1',
@@ -67,9 +52,6 @@ echo 'numrow = 0';
         );
     }
 
-echo '$comment';
-echo '<pre>'; print_r($comment); echo '</pre>';
-    
     if($comment['spam_feedback']=='spam')//if comment was tagged as suspected-spam, whereas it is actually ham, it is submited back to akismet as ham
     {
         set_make_full_url();
@@ -99,12 +81,8 @@ echo '<pre>'; print_r($comment); echo '</pre>';
             'permalink' => $url,
             'referrer' => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '',
         );
-        echo '$aki_comm';
-        echo '<pre>'; print_r($aki_comm); echo '</pre>';
 
         $root_url=get_absolute_root_url();
-        echo '$root_url';
-        echo '<pre>'; print_r($root_url); echo '</pre>';
 
         $akismet = new Akismet(get_absolute_root_url(), $conf['akismet_api_key'], $aki_comm);
 
@@ -114,11 +92,11 @@ echo '<pre>'; print_r($comment); echo '</pre>';
         $answer=$akismet->submitHam();
         }
         else{
-        $answer='error in ham submission';
+        $answer='Error in ham submission';
         }
     }
     else{
-        $answer='nothing to submit to Akismet';
+        $answer='Nothing to submit to Akismet';
     }
 
     return $answer;
