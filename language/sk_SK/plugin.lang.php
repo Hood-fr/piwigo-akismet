@@ -16,6 +16,7 @@ $lang['Action when spam is detected:'] = 'Opatrenie, keď je objavený spam:';
 $lang['moderate'] = 'moderovať';
 $lang['reject'] = 'odmietnúť';
 $lang['Test your configuration'] = 'Otestovanie konfigurácie';
+$lang['Suspected_Spam'] = 'POZASTAVENÝ AKO SPAM';
 
 
 //maintain.inc.php

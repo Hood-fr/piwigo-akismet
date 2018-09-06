@@ -37,4 +37,5 @@ $lang['out of'] = 'ud af';
 $lang['reject'] = 'afvis';
 $lang['reset counters'] = 'nulstil tællere';
 $lang['spam comments'] = 'spamkommentarer';
+$lang['Suspected_Spam'] = 'SUSPEKTERET SOM SPAM';
 ?>

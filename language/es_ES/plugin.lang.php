@@ -16,6 +16,7 @@ $lang['Action when spam is detected:'] = 'La acción cuando el bombardeo publici
 $lang['moderate'] = 'ES moderate';
 $lang['reject'] = 'ES reject';
 $lang['Test your configuration'] = 'Pruebe su configuración';
+$lang['Suspected_Spam'] = 'SOSPECHOSO COMO SPAM';
 
 
 //maintain.inc.php

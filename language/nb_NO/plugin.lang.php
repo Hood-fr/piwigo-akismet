@@ -15,6 +15,7 @@ $lang['Action when spam is detected:'] = 'Tiltak når spam er oppdaget:';
 $lang['moderate'] = 'moderat';
 $lang['reject'] = 'avvis';
 $lang['Test your configuration'] = 'Test din konfigurasjon';
+$lang['Suspected_Spam'] = 'SUSPEKERT SOM SPAM';
 
 //maintain.inc.php
 $lang['You need to define the Akismet api key'] = 'Du trenger å definere din Akismet api nøkkel';

@@ -16,6 +16,7 @@ $lang['Action when spam is detected:'] = 'Intézkedés spam észlelésekor:';
 $lang['moderate'] = 'moderáció';
 $lang['reject'] = 'eldobás';
 $lang['Test your configuration'] = 'Beállítások ellenőrzése';
+$lang['Suspected_Spam'] = 'MEGFELELŐEN SPAM';
 
 
 //maintain.inc.php

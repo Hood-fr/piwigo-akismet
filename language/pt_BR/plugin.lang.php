@@ -37,4 +37,5 @@ $lang['out of'] = 'fora de';
 $lang['reject'] = 'rejeitar';
 $lang['reset counters'] = 'redefinir contadores';
 $lang['spam comments'] = 'comentários de spam';
+$lang['Suspected_Spam'] = 'SUSPEITO COMO SPAM';
 ?>

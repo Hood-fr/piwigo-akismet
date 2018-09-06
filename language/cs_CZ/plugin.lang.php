@@ -16,6 +16,7 @@ $lang['Action when spam is detected:'] = 'Akce pokud byl zjištěn spam:';
 $lang['moderate'] = 'střední'; 
 $lang['reject'] = 'zamítnout'; 
 $lang['Test your configuration'] = 'Otestovat konfiguraci';
+$lang['Suspected_Spam'] = 'POZASTAVENO ZA SPAM';
 
 
 //maintain.inc.php
@@ -23,5 +24,4 @@ $lang['You need to define the Akismet api key'] = 'Je třeba definovat Akismet A
 
 //akismet.class.php
 $lang['Your Akismet API key is not valid.'] = 'Váš Akismet API klíč není platný.';
-
 ?>

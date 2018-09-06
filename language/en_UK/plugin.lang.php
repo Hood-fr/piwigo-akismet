@@ -16,6 +16,7 @@ $lang['Action when spam is detected:'] = 'Action when spam is detected:';
 $lang['moderate'] = 'moderate';
 $lang['reject'] = 'reject';
 $lang['Test your configuration'] = 'Test your configuration';
+$lang['Suspected_Spam'] = 'SUSPECTED AS SPAM';
 
 
 //maintain.inc.php
@@ -24,5 +25,4 @@ $lang['You need to define the Akismet api key'] = 'You need to define the Akisme
 //akismet.class.php
 $lang['Your Akismet API key is not valid.'] = 'Your Akismet API key is not valid.';
 
-$lang['Suspected_Spam'] = 'SUSPECTED SPAM';
 ?>

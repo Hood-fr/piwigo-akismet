@@ -37,4 +37,5 @@ $lang['out of'] = '之外';
 $lang['reject'] = '拒绝';
 $lang['reset counters'] = '重设计数器';
 $lang['spam comments'] = '垃圾评论';
+$lang['Suspected_Spam'] = '被视为垃圾邮件';
 ?>

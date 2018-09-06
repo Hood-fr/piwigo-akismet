@@ -37,4 +37,5 @@ $lang['out of'] = 'van de';
 $lang['reject'] = 'afwijzen';
 $lang['reset counters'] = 'tellers terugzetten';
 $lang['spam comments'] = 'spam commentaar';
+$lang['Suspected_Spam'] = 'VERDACHT ALS SPAM';
 ?>

@@ -37,4 +37,5 @@ $lang['out of'] = 'haricinde';
 $lang['reject'] = 'reddet';
 $lang['reset counters'] = 'sayaçları sıfırla';
 $lang['spam comments'] = 'spam yorumlar';
+$lang['Suspected_Spam'] = 'SPAM OLARAK SÜSPANSLI';
 ?>

@@ -37,4 +37,5 @@ $lang['Akismet API Key:'] = 'Akismet API võti:';
 $lang['Akismet configuration'] = 'Akismet seadistus';
 $lang['Akismet has caught'] = 'Akismet on püüdnud';
 $lang['More statistics on'] = 'Veel statistikat järgmise kohta';
+$lang['Suspected_Spam'] = 'PÜSIVATUD SPAM';
 ?>

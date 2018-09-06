@@ -37,4 +37,5 @@ $lang['out of'] = 'из';
 $lang['reject'] = 'отвергать';
 $lang['reset counters'] = 'сброс счетчика';
 $lang['spam comments'] = 'спам-комментариев';
+$lang['Suspected_Spam'] = 'ПОДОЗРЕВАЕМЫЙ КАК СПАМ';
 ?>

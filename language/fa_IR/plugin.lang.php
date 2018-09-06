@@ -39,4 +39,5 @@ $lang['reject'] = 'برگشت';
 $lang['reset counters'] = '
 تنظیم مجدد شمارنده';
 $lang['spam comments'] = 'دیدگاه های بی مورد';
+$lang['Suspected_Spam'] = 'دیدگاه های بی مورد';
 ?>

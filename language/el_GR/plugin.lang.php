@@ -37,4 +37,5 @@ $lang['out of'] = 'έξω από';
 $lang['reject'] = 'απορρίψει';
 $lang['reset counters'] = 'μηδενίσετε τους μετρητές';
 $lang['spam comments'] = 'spam σχόλια';
+$lang['Suspected_spam'] = 'ΥΠΟΣΤΗΡΙΖΟΝΤΑΙ ΩΣ SPAM';
 ?>

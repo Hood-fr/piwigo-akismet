@@ -16,6 +16,7 @@ $lang['Action when spam is detected:'] = 'Darbība spama konstatēšanas gadīju
 $lang['moderate'] = 'mērens';
 $lang['reject'] = 'noraidīt';
 $lang['Test your configuration'] = 'Pārbaudīt jūsu konfigurāciju';
+$lang['Suspected_Spam'] = 'Tiek uzskatīts par spamu';
 
 //maintain.inc.php
 $lang['You need to define the Akismet api key'] = 'Jums jādefinē Akismet api atslēga';
