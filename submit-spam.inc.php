@@ -76,8 +76,12 @@ function akismet_user_comment_submit_spam($comment_id, $where)
 
 
         $aki_comm = array(
-            'author' => $comment['author'],
-            'body' => $comment['content'],
+            'blog' => isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '',
+            //'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '',
+            'user_ip' => $comment['anonymous_id'],
+            'comment_type' => 'comment',
+            'comment_author' => $comment['author'],
+            'comment_content' => $comment['content'],
             'comment_author_url' => @$comment['website_url'],
             'comment_author_email' => $comment['email'],
             'permalink' => $url,
