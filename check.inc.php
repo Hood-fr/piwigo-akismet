@@ -65,27 +65,32 @@ function akismet_user_comment_check($action, $comment, $where)
         $spam_action = $conf['akismet_spam_action'];
         if(isset($_SESSION['csi']) && (!isset($_POST['url']) || strlen($_POST['url'])==0))
         {
-            if($spam_action=='moderate' )
+            if($spam_action=='moderate' )//if admin choice is to moderate probables-spams
             {
-                if(is_a_guest()){
+                if(is_a_guest()){// probable-spam from guests are rejected by default
                     $action='reject';
                 }
-                else{
-                    $action='moderate';
+                else{// probable-spam from registered users (even admin) are moderated
+                    $action='moderate-spam';
                 }
             }
-            if($spam_action=='reject' )
+            if($spam_action=='reject' )//if admin choice is to reject probables-spams
             {
-                if(is_admin()){
-                    $action='moderate';
+                if(is_admin()){//only comments post by admin and webmaster are kept and to be moderated
+                    $action='moderate-spam';
                 }
-                else{
+                else{//all other are rejected
                     $action='reject';
                 }
             }
         }
         else{
-            $action=$spam_action;
+            if($spam_action=='moderate' ){
+                $action='moderate-spam';
+            }
+            else{
+                $action='reject';
+            }
         }
         $counters[0]++;
         $_POST['cr'][] = 'aki';
