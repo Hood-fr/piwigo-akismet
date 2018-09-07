@@ -16,7 +16,6 @@ $lang['Action when spam is detected:'] = 'Action lors de la détection de spam :
 $lang['moderate'] = 'moderer';
 $lang['reject'] = 'rejecter';
 $lang['Test your configuration'] = 'Tester votre configuration';
-$lang['Suspected_Spam'] = '';
 
 //maintain.inc.php
 $lang['You need to define the Akismet api key'] = 'Vous avez besoins de définir la clé API d\'Akismet';
