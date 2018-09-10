@@ -17,6 +17,15 @@ if (!isset($_SESSION['csi']))
 	add_event_handler('loc_begin_page_tail', 'akismet_page_tail' );
 
 
+
+add_event_handler('init', 'akismet_init');
+
+function akismet_init()
+{
+  load_language('plugin.lang', AKIS_PATH);
+}
+
+
 add_event_handler('get_admin_plugin_menu_links', 'akismet_plugin_admin_menu' );
 
 function akismet_plugin_admin_menu($menu)
