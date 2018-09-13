@@ -89,7 +89,7 @@ function akismet_user_comment_check($action, $comment, $where)
             }
         }
         else{
-            if($spam_action=='moderate' ){
+            if($spam_action=='moderate' && !is_a_guest()){
                 $action='moderate-spam';
             }
             else{
@@ -98,8 +98,8 @@ function akismet_user_comment_check($action, $comment, $where)
         }
         $counters[0]++;
         $_POST['cr'][] = 'aki';
-			if ('reject'!=$action)
-				set_status_header(403);
+        if ('reject'!=$action)
+            set_status_header(403);
     }
     else
     {
