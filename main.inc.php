@@ -12,7 +12,7 @@ define('AKIS_PATH' , PHPWG_PLUGINS_PATH . AKIS_DIR . '/');
 
 add_event_handler('user_comment_check', 'akismet_user_comment_check_wrapper', EVENT_HANDLER_PRIORITY_NEUTRAL+10, 3);
 add_event_handler('user_comment_validation', 'akismet_user_comment_submit_ham_wrapper', EVENT_HANDLER_PRIORITY_NEUTRAL+10, 3);
-add_event_handler('user_comment_deletion', 'akismet_user_comment_submit_spam_wrapper', EVENT_HANDLER_PRIORITY_NEUTRAL+10, 3);
+add_event_handler('comment_spam_submission', 'akismet_user_comment_submit_spam_wrapper', EVENT_HANDLER_PRIORITY_NEUTRAL+10, 3);
 if (!isset($_SESSION['csi']))
 	add_event_handler('loc_begin_page_tail', 'akismet_page_tail' );
 
