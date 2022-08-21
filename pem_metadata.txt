@@ -1,4 +1,4 @@
-File automatically created from SVN repository.
+File automatically created from SVN or Git repository.
 
-URL: http://piwigo.org/svn/extensions/rv_akismet/ 
-Revision: 29452
+URL: https://github.com/Piwigo/piwigo-akismet 
+Revision: ba4f370cfd34c58b6b81516c08260b7c780261b3 (Tue Aug 14 11:10:46 2018 +0200)
