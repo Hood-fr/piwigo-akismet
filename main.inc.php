@@ -77,7 +77,7 @@ function akismet_init()
 	$template->smarty->register_prefilter('akismet_prefilter_comment_form');
 }
 
-function akismet_prefilter_comment_form($source, $smarty)
+function akismet_prefilter_comment_form($source)
 {
 	if ( ($pos=strpos($source, '<textarea'))!==false
 		&& ($pos2=strpos($source, 'comment', $pos))!==false
