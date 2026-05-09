@@ -25,7 +25,7 @@
   <label>
     {'Action when spam is detected:'|@translate}
     <select name="akismet_spam_action">
-    	{html_options values='moderate,reject'|@explode output='moderate,reject'|@explode selected=$AKISMET_SPAM_ACTION }
+      {html_options values=","|explode:"moderate,reject" output=","|explode:"moderate,reject" selected=$AKISMET_SPAM_ACTION}
     </select>
   </label>
   </li>
